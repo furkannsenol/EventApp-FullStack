@@ -17,7 +17,6 @@ const getAllCategories = async (req: Request, res: Response): Promise<void> => {
 const createCategory = async (req: Request, res: Response): Promise<void> => {
     //const { categoryName }: { categoryName: string } = req.body
 
-
     try {
         const requestBody = req.body as ICategory | null
         if (!requestBody) {
