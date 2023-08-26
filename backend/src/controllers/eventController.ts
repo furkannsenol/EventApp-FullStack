@@ -3,16 +3,16 @@ import Event, { IEvent } from "../models/eventModel"
 
 const getAllEvents = async (req: Request, res: Response): Promise<void> => {
     try {
-        const page = parseInt(req.query.page as string) || 1; // Sayfa numarasını al, eğer belirtilmemişse 1 olarak kabul et
-        const limit = 2; // Her sayfada kaç veri gösterileceği
+        const page = parseInt(req.query.page as string) || 1; 
+        const limit = 10; 
 
-        const totalEventsCount = await Event.countDocuments(); // Toplam etkinlik sayısını al
-        const totalPages = Math.ceil(totalEventsCount / limit); // Toplam sayfa sayısını hesapla
+        const totalEventsCount = await Event.countDocuments(); 
+        const totalPages = Math.ceil(totalEventsCount / limit); 
 
-        const startIndex = (page - 1) * limit; // Sayfa başlangıç indeksi
-        const endIndex = page * limit; // Sayfa bitiş indeksi
+        const startIndex = (page - 1) * limit; 
+        //const endIndex = page * limit; 
 
-        const events: IEvent[] = await Event.find().skip(startIndex).limit(limit).sort({ _id: -1 })
+        const events: IEvent[] = await Event.find().skip(startIndex).limit(limit).sort({ _id:-1 })
         res.status(200).json({
             status: 'OK',
             total_results: totalEventsCount,
