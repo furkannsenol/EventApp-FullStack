@@ -8,7 +8,7 @@ import {
   StyleSheet,
   Text,
 } from 'react-native';
-import { BASE_URL } from '@env';
+import { BASE_URL,API_KEY } from '@env';
 function App() {
 
   interface Item {
@@ -35,7 +35,7 @@ function App() {
  /// );
   return (
     <SafeAreaView>
-      <Text>{BASE_URL}</Text>
+      <Text>{API_KEY}+</Text>
     </SafeAreaView>
   );
 }
