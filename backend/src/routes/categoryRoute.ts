@@ -21,7 +21,7 @@ const router = express.Router();
 *         description: API anahtarı
 *     responses:
 *       '200':
-*         description: Başarılı yanıt
+*         description: Success
 *         content:
 *           application/json:
 *             schema:
@@ -46,7 +46,7 @@ router.get('/', apiKeyMiddleware, categoryController.getAllCategories);
  *             $ref: '#/components/schemas/Category'
  *     responses:
  *       '201':
- *         description: Başarılı yanıt
+ *         description: Success
  *         content:
  *           application/json:
  *             schema:
