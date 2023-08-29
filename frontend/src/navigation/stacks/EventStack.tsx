@@ -4,15 +4,15 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import EventDetailScreen from '../../screens/EventDetailScreen';
 import EventListScreen from '../../screens/EventListScreen';
 
-const ProductStackScreens = createNativeStackNavigator();
+const EventStackScreens = createNativeStackNavigator();
 
 const EventStack = () => {
     return (
         <>
-            <ProductStackScreens.Navigator>
-                <ProductStackScreens.Screen name="EventList" component={EventListScreen} options={{headerShown:false}} />
-                <ProductStackScreens.Screen name="EventDetail" component={EventDetailScreen} />
-            </ProductStackScreens.Navigator>
+            <EventStackScreens.Navigator>
+                <EventStackScreens.Screen name="EventList" component={EventListScreen} options={{headerShown:false}} />
+                <EventStackScreens.Screen name="EventDetail" component={EventDetailScreen} />
+            </EventStackScreens.Navigator>
         </>
     )
 
