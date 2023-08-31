@@ -12,7 +12,7 @@ const getAllEvents = async (req: Request, res: Response): Promise<void> => {
         const startIndex = (page - 1) * limit; 
         //const endIndex = page * limit; 
 
-        const events: IEvent[] = await Event.find().skip(startIndex).limit(limit).sort({ _id:-1 })
+        const events: IEvent[] = await Event.find().skip(startIndex).limit(limit).sort({ date:-1 })
         res.status(200).json({
             status: 'OK',
             total_results: totalEventsCount,
@@ -58,7 +58,21 @@ const createEvent = async (req: Request, res: Response): Promise<void> => {
     }
 }
 
+const getPopularEvents = async (req: Request, res: Response): Promise<void> => {
+    try {
+        const events: IEvent[] = await Event.find().limit(5).sort({ date:-1 })
+        res.status(200).json({
+            status: 'OK',
+            total_results: events.length,
+            results: events,
+        })
+    } catch (error: any) {
+        res.status(500).json({ message: error.message })
+    }
+}
+
 export const eventController = {
     getAllEvents,
-    createEvent
+    createEvent,
+    getPopularEvents
 }
