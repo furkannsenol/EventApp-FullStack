@@ -3,6 +3,7 @@ const options = {
         info: {
             title: 'REST API Docs',
             version: '1.0.0',
+            description: '17bcaf6d3a99f8967c98606b11d56a0d'
         },
     },
     components: {

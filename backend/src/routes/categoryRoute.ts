@@ -9,7 +9,7 @@ const router = express.Router();
 * @swagger
 * /api/categories:
 *   get:
-*     summary: Tüm kategorileri getirir
+*     summary: Get All Category
 *     tags:
 *       - Category
 *     parameters:
@@ -18,7 +18,7 @@ const router = express.Router();
 *         schema:
 *           type: string
 *         required: true
-*         description: API anahtarı
+*         description: API key value
 *     responses:
 *       '200':
 *         description: Success
@@ -35,9 +35,16 @@ router.get('/', apiKeyMiddleware, categoryController.getAllCategories);
  * @swagger
  * /api/categories:
  *   post:
- *     summary: Yeni bir kategori oluştur
+ *     summary: Create a new Category
  *     tags:
  *       - Category
+ *     parameters:
+ *       - in: query
+ *         name: api_key
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: API key value
  *     requestBody:
  *       required: true
  *       content:
@@ -52,6 +59,6 @@ router.get('/', apiKeyMiddleware, categoryController.getAllCategories);
  *             schema:
  *               $ref: '#/components/schemas/Category'
  */
-router.post('/', categoryController.createCategory)
+router.post('/', apiKeyMiddleware, categoryController.createCategory)
 
 export default router;
