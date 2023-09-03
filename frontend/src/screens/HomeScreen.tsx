@@ -5,7 +5,6 @@ import { Dispatch } from 'redux'
 import { ICategory, ICategoryData } from '../model/categoryData'
 import { RootState } from '../redux/store/configureStore'
 import { getCategory } from '../redux/actions/categoryActions'
-import HomeHeader from '../components/HomeHeader'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { IEvent, IEventData, IPricing } from '../model/eventData'
 import { getPopularEvent } from '../redux/actions/popularEventActions'
@@ -15,6 +14,7 @@ import { SliderBox } from "react-native-image-slider-box";
 import { SwiperFlatList } from 'react-native-swiper-flatlist';
 import FastImage from 'react-native-fast-image'
 import HomeSliderItem from '../components/HomeSliderItem'
+import LinearGradient from 'react-native-linear-gradient'
 
 const HomeScreen = ({ navigation }: { navigation: any }) => {
   const dispatch: Dispatch<any> = useDispatch()
@@ -31,11 +31,50 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
   const { width } = Dimensions.get('window')
   const _width = width - 40
 
+  const statusBarHeight: number = StatusBar.currentHeight || 0
+  const topPadding = statusBarHeight + 20
+
+  if (popularIsLoading || categoryIsLoading) {
+    return (
+      <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <ActivityIndicator size="large" />
+      </SafeAreaView>
+    );
+  }
+
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#F8F8F8' }}>
-      {(popularIsLoading || categoryIsLoading) && <ActivityIndicator size="large" />}
       <View style={{ flex: 3 }}>
-        <HomeHeader />
+      <StatusBar translucent backgroundColor="transparent" barStyle={'light-content'} />
+        <LinearGradient colors={['#191E28', '#30343D']} style={{ width: '100%', paddingTop: topPadding, height: '100%', paddingHorizontal: 20, }} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} >
+            <View style={styles.header}>
+                <View style={{ flexDirection: 'row' }}>
+                    <Text style={{ color: 'white', fontSize: 36, fontWeight: 'bold', fontStyle: 'italic' }}>Ǝ</Text>
+                    <Text style={{ color: 'white', fontSize: 20, fontWeight: '600', fontStyle: 'italic', paddingLeft: 10, marginTop: 12 }}>Etkinlikler</Text>
+                </View>
+                <Image source={{ uri: 'https://leadership.ng/wp-content/uploads/2023/03/davido.png' }} style={{ width: 50, height: 50, borderRadius: 50 }} />
+            </View>
+            <View style={{ paddingTop: 30 }}>
+                <Text style={{ color: '#A0A1A5', fontWeight: '500', fontSize: 14 }}>Merhaba Furkan</Text>
+                <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', marginTop: 5 }}>Muhteşem Etkinlikleri Keşfet</Text>
+            </View>
+            {/*<View style={{ flexDirection: 'row', alignItems: 'center', borderRadius: 10, height: 50, marginTop: 30, backgroundColor: '#4F535A' }}>
+                <MaterialCommunityIcons name="magnify" size={24} color="white" style={{ marginHorizontal: 8 }} />
+                <TextInput
+                    style={{ flex: 1, height: 40, color: 'gray' }}
+                    //value={text}
+                    // onChangeText={handleChangeText}
+                    maxLength={30}
+                    underlineColorAndroid="transparent"
+                    placeholderTextColor='#73767C'
+                    placeholder='Muhteşem etkinleri bul'
+                    returnKeyType='search'
+                    multiline={false}
+                />
+    </View>*/}
+        </LinearGradient>
+
+
       </View>
 
       <View style={{ flex: 6, borderTopLeftRadius: 20, borderTopRightRadius: 20, paddingHorizontal: 20, marginTop: -20, backgroundColor: '#F8F8F8' }}>
@@ -94,6 +133,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  header: {
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    width: '100%',
+
+},
   page: {
     alignItems: 'center',
     justifyContent: 'center',
