@@ -6,11 +6,17 @@ import SearchScreen from '../../screens/SearchScreen';
 
 const HomeStackScreens = createNativeStackNavigator();
 
-const EventStack = () => {
+const HomeStack = () => {
     return (
         <>
             <HomeStackScreens.Navigator>
-                <HomeStackScreens.Screen name="Home" component={HomeScreen} options={{headerShown:false}} />
+                <HomeStackScreens.Screen
+                    name="Home"
+                    component={HomeScreen}
+                    options={{
+                        headerShown:false
+                    }}
+                />
                 <HomeStackScreens.Screen name="Search" component={SearchScreen} />
             </HomeStackScreens.Navigator>
         </>
@@ -18,4 +24,4 @@ const EventStack = () => {
 
 }
 
-export default EventStack
+export default HomeStack
