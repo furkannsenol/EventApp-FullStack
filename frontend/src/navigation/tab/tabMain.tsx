@@ -7,21 +7,9 @@ import EventStack from '../stacks/EventStack';
 import SettingScreen from '../../screens/SettingScreen';
 import HomeStack from '../stacks/HomeStack';
 import { IEvent } from '../../model/eventData';
+import { RootStackParamList } from '../navigationTypes';
 
-export type RootStackParamList = {
-    HomeStack: NavigatorScreenParams<HomeTabParamList>;
-    EventStack: NavigatorScreenParams<EventTabParamList>;
-    bos: undefined;
-    Settings:undefined
-  };
 
-  export type HomeTabParamList = {
-  };
-
-  export type EventTabParamList = {
-    EventList: undefined
-    EventDetail: { item: IEvent }
-}
   
 const Tab = createBottomTabNavigator<RootStackParamList>();
 

@@ -4,7 +4,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import EventDetailScreen from '../../screens/EventDetailScreen';
 import EventListScreen from '../../screens/EventListScreen';
 import { IEvent } from '../../model/eventData';
-import { EventTabParamList } from '../tab/tabMain';
+import { EventTabParamList } from '../navigationTypes';
+
 
 
 const EventStackScreens = createNativeStackNavigator<EventTabParamList>();

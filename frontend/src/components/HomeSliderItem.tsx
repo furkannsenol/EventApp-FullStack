@@ -4,7 +4,7 @@ import { IEvent } from '../model/eventData';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { StackNavigationState, useNavigation } from '@react-navigation/native'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import {  RootStackParamList } from '../navigation/tab/tabMain';
+import { RootStackParamList } from '../navigation/navigationTypes';
 
 interface IProps {
     item: IEvent

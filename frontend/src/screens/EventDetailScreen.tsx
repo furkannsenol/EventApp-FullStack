@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { EventTabParamList } from '../navigation/navigationTypes';
 
-import { EventTabParamList, RootStackParamList } from '../navigation/tab/tabMain';
 
 type Props = NativeStackScreenProps<EventTabParamList, 'EventDetail'>;
 
