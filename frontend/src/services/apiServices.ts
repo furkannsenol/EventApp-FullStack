@@ -9,3 +9,12 @@ export const CategoryAPIService = async (): Promise<any> => {
         throw new Error("API Error:" + error)
     }
 }
+
+export const PopularEventAPIService = async (): Promise<any> => {
+    try {
+        const response: AxiosResponse<any> = await axios.get(`${BASE_URL}/events/popular?api_key=${API_KEY}`)
+        return response.data
+    } catch (error) {
+        throw new Error("API Error:" + error)
+    }
+}
