@@ -1,20 +1,24 @@
-import { FlatList, StyleSheet, Text, View, SafeAreaView, StatusBar, Image, ScrollView, ActivityIndicator, Dimensions } from 'react-native'
-import React, { useEffect } from 'react'
+import { StyleSheet, Text, View, SafeAreaView, StatusBar, Image, ScrollView, ActivityIndicator, Dimensions } from 'react-native'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Dispatch } from 'redux'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import LinearGradient from 'react-native-linear-gradient'
+import { SwiperFlatList } from 'react-native-swiper-flatlist';
+import Spinner from 'react-native-spinkit'
+
+//import PagerView from 'react-native-pager-view';
+//import { SliderBox } from "react-native-image-slider-box";
+//import FastImage from 'react-native-fast-image'
+
 import { ICategory, ICategoryData } from '../model/categoryData'
 import { RootState } from '../redux/store/configureStore'
 import { getCategory } from '../redux/actions/categoryActions'
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
-import { IEvent, IEventData, IPricing } from '../model/eventData'
+import { IEvent, IEventData } from '../model/eventData'
 import { getPopularEvent } from '../redux/actions/popularEventActions'
-import PagerView from 'react-native-pager-view';
+
 import CategoryItem from '../components/CategoryItem'
-import { SliderBox } from "react-native-image-slider-box";
-import { SwiperFlatList } from 'react-native-swiper-flatlist';
-import FastImage from 'react-native-fast-image'
 import HomeSliderItem from '../components/HomeSliderItem'
-import LinearGradient from 'react-native-linear-gradient'
 
 const HomeScreen = ({ navigation }: { navigation: any }) => {
   const dispatch: Dispatch<any> = useDispatch()
@@ -33,17 +37,17 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
 
   const statusBarHeight: number = StatusBar.currentHeight || 0
   const topPadding = statusBarHeight + 20
-
+  
   if (popularIsLoading || categoryIsLoading) {
     return (
       <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <ActivityIndicator size="large" />
+        <Spinner color='#F9742A' size={75} type='ThreeBounce' isVisible/>
       </SafeAreaView>
     );
   }
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: '#F8F8F8' }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#F8F8F8' , height:'100%'}}>
       <View style={{ flex: 3 }}>
       <StatusBar translucent backgroundColor="transparent" barStyle={'light-content'} />
         <LinearGradient colors={['#191E28', '#30343D']} style={{ width: '100%', paddingTop: topPadding, height: '100%', paddingHorizontal: 20, }} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} >
