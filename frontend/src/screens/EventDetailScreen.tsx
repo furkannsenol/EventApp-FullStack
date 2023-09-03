@@ -1,10 +1,23 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-const EventDetailScreen = () => {
+import { EventTabParamList, RootStackParamList } from '../navigation/tab/tabMain';
+
+type Props = NativeStackScreenProps<EventTabParamList, 'EventDetail'>;
+
+
+const EventDetailScreen: React.FC<Props> = ({ route }) => {
+  const { item } = route?.params || {}
   return (
     <View>
-      <Text>EventDetailScreen</Text>
+      <Text>{item?.date}</Text>
+      <Text>{item?._id}</Text>
+      <Text>{item?._id}</Text>
+      <Text>{item?._id}</Text>
+      <Text>{item?._id}</Text>
+      <Text>{item?._id}</Text>
+      <Text>{item?._id}</Text>
     </View>
   )
 }
