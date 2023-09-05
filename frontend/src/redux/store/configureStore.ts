@@ -4,9 +4,11 @@ import { combineReducers, createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import categoryReducer from '../reducers/categoryReducer';
 import popularEventReducer from '../reducers/popularEventReducer'
+import allEventReducer from '../reducers/allEventReducer';
 const rootReducer = combineReducers({
     categoryReducer,
-    popularEventReducer
+    popularEventReducer,
+    allEventReducer
 });
 
 export const store = createStore(rootReducer, applyMiddleware(thunk));
