@@ -27,6 +27,7 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
   const categoryIsLoading: boolean = useSelector((state: RootState) => state.categoryReducer.loading)
   const popularEvents: IEventData = useSelector((state: RootState) => state.popularEventReducer.popularEvents)
   const popularIsLoading: boolean = useSelector((state: RootState) => state.popularEventReducer.loading)
+
   useEffect(() => {
     dispatch(getCategory())
     dispatch(getPopularEvent())
@@ -37,32 +38,33 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
 
   const statusBarHeight: number = StatusBar.currentHeight || 0
   const topPadding = statusBarHeight + 20
-  
+
   if (popularIsLoading || categoryIsLoading) {
     return (
       <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Spinner color='#F9742A' size={75} type='ThreeBounce' isVisible/>
+        <Spinner color='#F9742A' size={75} type='ThreeBounce' isVisible />
       </SafeAreaView>
     );
   }
-
+   // "27 Kasım 2023, Pazartesi"
+  
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: '#F8F8F8' , height:'100%'}}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#F8F8F8', height: '100%' }}>
       <View style={{ flex: 3 }}>
-      <StatusBar translucent backgroundColor="transparent" barStyle={'light-content'} />
+        <StatusBar translucent backgroundColor="transparent" barStyle={'light-content'} />
         <LinearGradient colors={['#191E28', '#30343D']} style={{ width: '100%', paddingTop: topPadding, height: '100%', paddingHorizontal: 20, }} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }} >
-            <View style={styles.header}>
-                <View style={{ flexDirection: 'row' }}>
-                    <Text style={{ color: 'white', fontSize: 36, fontWeight: 'bold', fontStyle: 'italic' }}>Ǝ</Text>
-                    <Text style={{ color: 'white', fontSize: 20, fontWeight: '600', fontStyle: 'italic', paddingLeft: 10, marginTop: 12 }}>Etkinlikler</Text>
-                </View>
-                <Image source={{ uri: 'https://leadership.ng/wp-content/uploads/2023/03/davido.png' }} style={{ width: 50, height: 50, borderRadius: 50 }} />
+          <View style={styles.header}>
+            <View style={{ flexDirection: 'row' }}>
+              <Text style={{ color: 'white', fontSize: 36, fontWeight: 'bold', fontStyle: 'italic' }}>Ǝ</Text>
+              <Text style={{ color: 'white', fontSize: 20, fontWeight: '600', fontStyle: 'italic', paddingLeft: 10, marginTop: 12 }}>Etkinlikler</Text>
             </View>
-            <View style={{ paddingTop: 30 }}>
-                <Text style={{ color: '#A0A1A5', fontWeight: '500', fontSize: 14 }}>Merhaba Furkan</Text>
-                <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', marginTop: 5 }}>Muhteşem Etkinlikleri Keşfet</Text>
-            </View>
-            {/*<View style={{ flexDirection: 'row', alignItems: 'center', borderRadius: 10, height: 50, marginTop: 30, backgroundColor: '#4F535A' }}>
+            <Image source={{ uri: 'https://leadership.ng/wp-content/uploads/2023/03/davido.png' }} style={{ width: 50, height: 50, borderRadius: 50 }} />
+          </View>
+          <View style={{ paddingTop: 30 }}>
+            <Text style={{ color: '#A0A1A5', fontWeight: '500', fontSize: 14 }}>Merhaba Furkan</Text>
+            <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', marginTop: 5 }}>Muhteşem Etkinlikleri Keşfet</Text>
+          </View>
+          {/*<View style={{ flexDirection: 'row', alignItems: 'center', borderRadius: 10, height: 50, marginTop: 30, backgroundColor: '#4F535A' }}>
                 <MaterialCommunityIcons name="magnify" size={24} color="white" style={{ marginHorizontal: 8 }} />
                 <TextInput
                     style={{ flex: 1, height: 40, color: 'gray' }}
@@ -95,7 +97,7 @@ const HomeScreen = ({ navigation }: { navigation: any }) => {
           <SwiperFlatList
             data={popularEvents?.results?.slice(0, 5)}
             showPagination
-            autoplay
+            //autoplay
             autoplayLoop
             autoplayDelay={2}
             autoplayLoopKeepAnimation
@@ -142,7 +144,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     width: '100%',
 
-},
+  },
   page: {
     alignItems: 'center',
     justifyContent: 'center',
