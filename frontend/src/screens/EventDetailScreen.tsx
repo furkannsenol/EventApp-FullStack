@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, StatusBar, SafeAreaView, Image, Dimensions, TouchableOpacity, ScrollView, Linking, Modal, FlatList } from 'react-native'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { NativeStackNavigationProp, NativeStackScreenProps } from '@react-navigation/native-stack'
 import { EventTabParamList, RootStackParamList } from '../navigation/navigationTypes'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
@@ -7,7 +7,7 @@ import { useNavigation } from '@react-navigation/native'
 import ReadMore from 'react-native-read-more-text'
 import MapView, { Marker } from 'react-native-maps'
 import { SwiperFlatList } from 'react-native-swiper-flatlist';
-
+import Spinner from 'react-native-spinkit'
 type Props = NativeStackScreenProps<EventTabParamList, 'EventDetail'>
 
 const statusBarHeight: number = StatusBar.currentHeight || 0
@@ -35,6 +35,27 @@ const EventDetailScreen: React.FC<Props> = ({ route }) => {
     setModalVisible(!isModalVisible)
   }
 
+  //1sec delay
+  // const [isLoading, setIsLoading] = useState(true)
+  // useEffect(() => {
+  //   loadingDelay()
+  // })
+
+  // const loadingDelay = () => {
+  //   //setIsLoading(true)
+  //   setTimeout(() => {
+  //     setIsLoading(false);
+  //   }, 300); // Verileri 1 saniye gecikme ile simüle ediyoruz.
+  // };
+
+  // if (isLoading) {
+  //   return (
+  //     <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+  //       <Spinner color='#F9742A' size={75} type='ThreeBounce' isVisible />
+  //     </SafeAreaView>
+  //   );
+  // }
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
 
@@ -56,7 +77,7 @@ const EventDetailScreen: React.FC<Props> = ({ route }) => {
           <Text style={styles.name}>{item.name}</Text>
 
           <Text style={styles.title}>Etkinliğe Dair</Text>
-          <ReadMore numberOfLines={2} renderTruncatedFooter={(handlePress) => (
+          <ReadMore  numberOfLines={2} renderTruncatedFooter={(handlePress) => (
             <Text onPress={handlePress} style={styles.readMore}>Devamını Oku...</Text>
           )}
             renderRevealedFooter={(handlePress) => (
@@ -257,12 +278,12 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
   },
-  address:{
-      fontSize:14,
-      color:'#A0A1A5',
-      fontWeight:'600',
-      letterSpacing:2,
-      marginBottom:100
+  address: {
+    fontSize: 14,
+    color: '#A0A1A5',
+    fontWeight: '600',
+    letterSpacing: 2,
+    marginBottom: 100
   },
 
   //Modal
@@ -273,10 +294,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
-    padding:20,
-    minHeight:200,
-    borderTopLeftRadius:20,
-    borderTopRightRadius:20
+    padding: 20,
+    minHeight: 200,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20
   },
   modalTitle: {
     fontSize: 20,
@@ -296,6 +317,7 @@ const styles = StyleSheet.create({
   modalItemText: {
     color: 'white',
     fontSize: 16,
+    fontWeight: '600'
   },
   modalCloseButton: {
     marginTop: 20,
@@ -304,6 +326,6 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 18,
     fontWeight: 'bold',
-    
+
   },
 })
