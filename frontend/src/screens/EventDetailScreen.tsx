@@ -122,6 +122,8 @@ const EventDetailScreen: React.FC<Props> = ({ route }) => {
             </MapView>
           </View>
 
+          <Text style={styles.address}>{item.location_information.address}</Text>
+
         </ScrollView>
       </View>
       <TouchableOpacity onPress={toggleModal}>
@@ -254,6 +256,13 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 18,
     fontWeight: 'bold',
+  },
+  address:{
+      fontSize:14,
+      color:'#A0A1A5',
+      fontWeight:'600',
+      letterSpacing:2,
+      marginBottom:100
   },
 
   //Modal

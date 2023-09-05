@@ -6,7 +6,7 @@ export interface IPricing {
 export interface ILocation {
     place: string;
     city: string;
-    adress: string;
+    address: string;
     latitude: number;
     longitude: number;
 }
