@@ -5,13 +5,14 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import { StackNavigationState, useNavigation } from '@react-navigation/native'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../navigation/navigationTypes';
+import { formatDate } from '../util/dateFormat';
 
 interface IProps {
     item: IEvent
 }
 const HomeSliderItem: React.FC<IProps> = ({ item }) => {
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
-
+    
     const { width } = Dimensions.get('window')
     const _width = width - 40
     return (
@@ -36,7 +37,7 @@ const HomeSliderItem: React.FC<IProps> = ({ item }) => {
                         </View>
                         <View style={{ flexDirection: 'row' }}>
                             <MaterialCommunityIcons name='calendar-range' size={18} color={'#F9742A'} />
-                            <Text style={{ paddingLeft: 5 }}>{item.date}</Text>
+                            <Text style={{ paddingLeft: 5 }}>{formatDate(item.date)}</Text>
                         </View>
                     </View>
                 </View>
