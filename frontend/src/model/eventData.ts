@@ -27,6 +27,7 @@ export interface IEvent {
 
 export interface IEventData{
     status:string
-    total_results:number
+    total_results:number,
+    total_pages?:number,
     results:IEvent[]
 }
