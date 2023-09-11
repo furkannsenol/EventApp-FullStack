@@ -16,7 +16,7 @@ const HomeSliderItem: React.FC<IProps> = ({ item }) => {
     const { width } = Dimensions.get('window')
     const _width = width - 40
     return (
-        <TouchableOpacity onPress={() => navigation.navigate('EventStack', {
+        <TouchableOpacity onPress={() => navigation.navigate('HomeStack', {
             screen: 'EventDetail',
             params: { item: item }
         })}>
