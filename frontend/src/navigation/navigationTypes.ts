@@ -9,7 +9,9 @@ export type RootStackParamList = {
 };
 
 export type HomeTabParamList = {
-        Home:undefined
+    Home: undefined
+    Search:undefined
+    EventDetail: { item: IEvent }
 };
 
 export type EventTabParamList = {

@@ -16,7 +16,7 @@ const EventStack = () => {
             <EventStackScreens.Navigator
             initialRouteName='EventList'>
                 <EventStackScreens.Screen name="EventList" component={EventListScreen} options={{ headerShown: false }} />
-                <EventStackScreens.Screen name="EventDetail" component={EventDetailScreen} options={{ headerShown: false }} />
+                <EventStackScreens.Screen name="EventDetail" component={EventDetailScreen} options={{ headerShown: false,animation:'slide_from_right' }} />
             </EventStackScreens.Navigator>
         </>
     )
