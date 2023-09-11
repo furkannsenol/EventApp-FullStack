@@ -77,7 +77,7 @@ const EventDetailScreen: React.FC<Props> = ({ route }) => {
           <Text style={styles.name}>{item.name}</Text>
 
           <Text style={styles.title}>Etkinliğe Dair</Text>
-          <ReadMore  numberOfLines={2} renderTruncatedFooter={(handlePress) => (
+          <ReadMore numberOfLines={2} renderTruncatedFooter={(handlePress) => (
             <Text onPress={handlePress} style={styles.readMore}>Devamını Oku...</Text>
           )}
             renderRevealedFooter={(handlePress) => (
@@ -88,7 +88,7 @@ const EventDetailScreen: React.FC<Props> = ({ route }) => {
             </Text>
           </ReadMore>
 
-          <View style={{ justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>
+          <View style={{ justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center',marginTop:20 }}>
             <View style={{ flexDirection: 'row', }}>
               <View style={{
                 width: 50, height: 50, backgroundColor: 'rgba(234, 222, 216, 0.6)', borderRadius: 25, alignItems: 'center',
@@ -156,19 +156,22 @@ const EventDetailScreen: React.FC<Props> = ({ route }) => {
       </TouchableOpacity>
       <Modal animationType="slide" transparent={true} visible={isModalVisible}>
         <View style={styles.modalContainer}>
-          <Text style={styles.modalTitle}>Fiyat Bilgileri</Text>
-          <FlatList
-            data={item.pricing_list}
-            keyExtractor={(item) => item.category_name}
-            renderItem={({ item }) => (
-              <TouchableOpacity onPress={() => toggleModal()}>
-                <View style={styles.modalItem}>
-                  <Text style={styles.modalItemText}>{item.category_name}: </Text>
-                  <Text style={styles.modalItemText}>{item.pay} TL</Text>
-                </View>
-              </TouchableOpacity>
-            )}
-          />
+          {item.pricing_type=='Ücretsiz' ? (<Text style={styles.modalTitle}>Ücretsiz</Text>) : (
+            <>
+              <Text style={styles.modalTitle}>Fiyat Bilgileri</Text>
+              <FlatList
+                data={item.pricing_list}
+                keyExtractor={(item) => item.category_name}
+                renderItem={({ item }) => (
+                  <TouchableOpacity onPress={() => toggleModal()}>
+                    <View style={styles.modalItem}>
+                      <Text style={styles.modalItemText}>{item.category_name}: </Text>
+                      <Text style={styles.modalItemText}>{item.pay} TL</Text>
+                    </View>
+                  </TouchableOpacity>
+                )}
+              />
+            </>)}
           <TouchableOpacity onPress={toggleModal}>
             <Text style={styles.modalCloseButton}>Kapat</Text>
           </TouchableOpacity>
@@ -243,7 +246,7 @@ const styles = StyleSheet.create({
     color: '#F9742A',
     fontWeight: 'bold',
     fontSize: 15,
-    marginBottom: 30
+    //marginBottom: 30
   },
   description: {
     color: '#A0A1A5',
@@ -295,7 +298,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
     padding: 20,
-    minHeight: 200,
+    //minHeight: 200,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20
   },
