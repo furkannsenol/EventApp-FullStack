@@ -1,6 +1,6 @@
 # EventApp - FullStack
-BackEnd: Node.js + MongoDB
-FrontEnd: React Native
+- Backend: [Node.js](https://nodejs.org) + [MongoDB](https://www.mongodb.com/)
+- FrontEnd: [React Native CLI](https://reactnative.dev/)
 
 # Back-End Usage
 - Node_module package installed, no need to download again!
