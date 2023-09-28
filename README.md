@@ -2,7 +2,7 @@
 - Backend: [Node.js](https://nodejs.org) + [MongoDB](https://www.mongodb.com/)
 - Frontend: [React Native CLI](https://reactnative.dev/)
 
-# Back-End Usage
+# Backend Usage
 - Node_module package installed, no need to download again!
 - Run `npm run dev` to start your application!
 - [localhost:3000/docs](https:/localhost:3000/docs) you can see all `CRUD` operations from this page
