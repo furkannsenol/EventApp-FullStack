@@ -29,3 +29,6 @@
 - `package.json`:
 - `tsconfig.json`:
 
+## Backend - Screenshot
+![image](https://github.com/furkannsenol/EventApp-FullStack/assets/36533867/d3dafbf1-bdf3-459d-8936-f69ef1b3a845)
+![image](https://github.com/furkannsenol/EventApp-FullStack/assets/36533867/50cb03e6-da35-4762-b7c2-69d1c3bb8888)
