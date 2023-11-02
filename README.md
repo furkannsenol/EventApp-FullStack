@@ -47,7 +47,7 @@
 ![image](https://github.com/furkannsenol/EventApp-FullStack/assets/36533867/304ee3e6-ae5f-4816-b304-25ecc8f4c7a9)
 ![image](https://github.com/furkannsenol/EventApp-FullStack/assets/36533867/870bb288-8c27-4422-91c7-ccc8a2bb76bc)
 ![image](https://github.com/furkannsenol/EventApp-FullStack/assets/36533867/3296b8a4-dade-4416-9d3c-57bfd8daf65a)
-![image](https://github.com/furkannsenol/EventApp-FullStack/assets/36533867/6d98e6b2-58a7-49cf-8530-20c2a5a030f5)
+![image](https://github.com/furkannsenol/EventApp-FullStack/assets/36533867/60684529-3761-437b-af8d-f44a4ac28a2c)
 
 
 
