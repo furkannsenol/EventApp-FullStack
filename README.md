@@ -32,6 +32,7 @@
 ## Backend - Screenshot
 ![image](https://github.com/furkannsenol/EventApp-FullStack/assets/36533867/d3dafbf1-bdf3-459d-8936-f69ef1b3a845)
 ![image](https://github.com/furkannsenol/EventApp-FullStack/assets/36533867/50cb03e6-da35-4762-b7c2-69d1c3bb8888)
+![image](https://github.com/furkannsenol/EventApp-FullStack/assets/36533867/f3ccaf8b-90d5-45b7-a073-f34d2505770b)
 
 ## Frontend Usage
 
@@ -43,5 +44,9 @@
 ![image](https://github.com/furkannsenol/EventApp-FullStack/assets/36533867/64c6b299-cc48-423e-bdea-c68b9ffca026)
 ![image](https://github.com/furkannsenol/EventApp-FullStack/assets/36533867/79024cc1-3805-409d-a21c-641cf683c68d)
 ![image](https://github.com/furkannsenol/EventApp-FullStack/assets/36533867/304ee3e6-ae5f-4816-b304-25ecc8f4c7a9)
+![image](https://github.com/furkannsenol/EventApp-FullStack/assets/36533867/870bb288-8c27-4422-91c7-ccc8a2bb76bc)
+![image](https://github.com/furkannsenol/EventApp-FullStack/assets/36533867/3296b8a4-dade-4416-9d3c-57bfd8daf65a)
+![image](https://github.com/furkannsenol/EventApp-FullStack/assets/36533867/359fbc40-3f3d-4d6e-aadc-4bfa467cc0f7)
+
 
 
